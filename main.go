@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 	"strings"
 
 	_ "github.com/lib/pq"
@@ -17,7 +18,8 @@ var (
 
 func main() {
 	var err error
-	dbdetails := "host=localhost port=5430 user=postgres dbname=postgres password=secret sslmode=disable"
+	host := os.Getenv("EXAMPLE_DATABASE_POSTGRESQL_SERVICE_HOST")
+	dbdetails := "host=" + host + " port=8080 user=postgres dbname=postgres password=secret sslmode=disable"
 	DB, err = sql.Open("postgres", dbdetails)
 	if err != nil {
 		log.Fatal(err)
