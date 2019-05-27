@@ -19,7 +19,7 @@ var (
 func main() {
 	var err error
 	host := os.Getenv("EXAMPLE_DATABASE_POSTGRESQL_SERVICE_HOST")
-	dbdetails := "host=" + host + " port=8080 user=postgres dbname=postgres password=secret sslmode=disable"
+	dbdetails := "host=" + host + " port=5432 user=postgres dbname=postgres password=secret sslmode=disable"
 	DB, err = sql.Open("postgres", dbdetails)
 	if err != nil {
 		log.Fatal(err)
