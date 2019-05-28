@@ -26,6 +26,7 @@ func main() {
 		log.Fatal(err)
 	}
 	DB.Exec("SELECT 1")
+	DB.Exec("CREATE TABLE note (note text)")
 
 	http.HandleFunc("/note", createNoteHandler)
 	log.Fatal(http.ListenAndServe(":8080", nil))
