@@ -16,6 +16,12 @@ spec:
     spec:
       containers:
       - name: notepad
-        image: REPLACE_IMAGE
+        image : quay.io/avni16/notepad:0.3.0
         ports:
         - containerPort: 8080
+      env:
+      - name: SECRET_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: apikey
+            key: password
