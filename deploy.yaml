@@ -23,5 +23,5 @@ spec:
         - name: SECRET_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: apikey
+              name: example-database-postgresql
               key: password
